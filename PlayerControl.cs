@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Text boomNumber = default;
     [SerializeField] int money=0;
     [SerializeField] Text moneyNumber = default;
+    [SerializeField] GameObject follower = null;
     [SerializeField] Joystick joy = null;
     float horizontalMove;
     
@@ -103,6 +104,12 @@ public class PlayerControl : MonoBehaviour
             money += 1;
             Destroy(collision.gameObject);
         }
+        if(collision.tag =="power")
+        {
+            Destroy(collision.gameObject);
+            Instantiate(follower, transform.position, Quaternion.identity);
+            
+        }
     }
 
     public void Boom()
@@ -111,7 +118,11 @@ public class PlayerControl : MonoBehaviour
         {	
             bomb -= 1;
             Instantiate(boom, transform.position, Quaternion.identity);
+            
         }
     }
-
+    public Vector3 getPosition()
+    {
+        return transform.position;
+    }
 }
