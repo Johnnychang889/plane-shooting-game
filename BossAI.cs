@@ -27,7 +27,7 @@ public class BossAI : MonoBehaviour
     }
     void Move()
     {
-
+        
         if (!right)
         {
             transform.Translate(speed * -1 * Time.deltaTime, 0, 0);
@@ -44,7 +44,7 @@ public class BossAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "PlayerBullet")
+        if (collision.tag == "PlayerBullet" || collision.tag == "FollowerBullet")
         {
             hp -= 5f;
             anim.SetTrigger("hit");

@@ -138,7 +138,7 @@ MonoBehaviour:
   speed: 3
   hp: 10
   enemyBullet: {fileID: 6379511560937967506, guid: 41bb7ef81af388c49a465ff74b03e2ba, type: 3}
-  moey: {fileID: 0}
+  bomb: {fileID: 4283384194352433206, guid: 41bc66758483d3146a482da3ec0c51cd, type: 3}
 --- !u!95 &2453243941139573608
 Animator:
   serializedVersion: 3

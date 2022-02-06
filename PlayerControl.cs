@@ -20,7 +20,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Text boomNumber = default;
     [SerializeField] int money=0;
     [SerializeField] Text moneyNumber = default;
-    [SerializeField] GameObject follower = null;
+    [SerializeField] GameObject follower1 = null;
+    [SerializeField] GameObject follower2 = null;
     [SerializeField] Joystick joy = null;
     float horizontalMove;
     
@@ -107,8 +108,8 @@ public class PlayerControl : MonoBehaviour
         if(collision.tag =="power")
         {
             Destroy(collision.gameObject);
-            Instantiate(follower, transform.position, Quaternion.identity);
-            
+            Instantiate(follower1, transform.position, Quaternion.identity);
+            Instantiate(follower2, transform.position, Quaternion.identity);
         }
     }
 
