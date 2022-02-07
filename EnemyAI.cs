@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if(collision.tag == "PlayerBullet" || collision.tag == "FollowerBullet")
+        if (collision.tag == "PlayerBullet"||collision.tag == "FollowerBullet"||collision.tag == "BoomBullet")
         {
             hp -= 5f;
             anim.SetTrigger("hit");

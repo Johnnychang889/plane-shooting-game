@@ -165,6 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  hp: 1
+  hp: 100
   enemyBullet: {fileID: 6379511560937967506, guid: 41bb7ef81af388c49a465ff74b03e2ba, type: 3}
   power: {fileID: 7183487681814583033, guid: f2ccd7d74ef7bf34283e17a5a2f3c3e2, type: 3}

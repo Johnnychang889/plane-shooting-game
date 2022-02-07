@@ -7,17 +7,20 @@ public class BossAI : MonoBehaviour
     private Animator anim;
     [SerializeField] float speed = 1f;
     bool right;
-    [SerializeField] float hp = 100f;
+    public float hp = 10f;
     [SerializeField] GameObject enemyBullet = null;
     [SerializeField] GameObject enemy = null;
     public bool isdie=false;
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         right = true;
         isdie = false;
         anim = GetComponent<Animator>();
         InvokeRepeating("Attack", 1f, 2f);
+
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class BossAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "PlayerBullet" || collision.tag == "FollowerBullet")
+        if (collision.tag == "PlayerBullet"||collision.tag == "FollowerBullet"||collision.tag == "BoomBullet")
         {
             hp -= 5f;
             anim.SetTrigger("hit");
@@ -88,5 +91,10 @@ public class BossAI : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void hpUp(){
+        hp = hp*2f;
+        
     }
 }

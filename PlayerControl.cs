@@ -41,6 +41,10 @@ public class PlayerControl : MonoBehaviour
         horizontalMove = joy.Horizontal;
         boomNumber.text = "" + bomb;
         moneyNumber.text = "" + money;
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            Boom();
+        }
         //transform.Translate(Vector3.up * 1 * Time.deltaTime, Space.World);
     }
     private void FixedUpdate()
