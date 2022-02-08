@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossAI : MonoBehaviour
 {
@@ -14,7 +15,15 @@ public class BossAI : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        if(PlayerPrefs.GetFloat("BossHp") == 10f)
+        {
+            hp = 10f;
+            PlayerPrefs.SetFloat("BossHp",PlayerPrefs.GetFloat("BossHp")*2f);
+        }
+        else{
+            hp = PlayerPrefs.GetFloat("BossHp");
+            PlayerPrefs.SetFloat("BossHp",PlayerPrefs.GetFloat("BossHp")*2f);
+        }
 
         right = true;
         isdie = false;

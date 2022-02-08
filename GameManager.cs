@@ -10,13 +10,13 @@ public class GameManager : MonoBehaviour
     {
         if(instance == null)
         {
-            Debug.Log("2");
             instance = this;
         }else if(instance != this){
-            Debug.Log("3");
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        PlayerPrefs.SetFloat("BossHp",10f);
     }
     public void Again()
     {

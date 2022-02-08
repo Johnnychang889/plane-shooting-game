@@ -293,7 +293,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2034950433}
+      - m_Target: {fileID: 5724875538656421953, guid: 4909f69d40e817f42beed37d7317d644, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Again
         m_Mode: 1

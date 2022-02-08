@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-    public GameObject game;
+    public GameObject callGameManager;
     private void Awake()
     {
         if(GameManager.instance == null){
-            Debug.Log("1");
-            Instantiate(game);
+            Instantiate(callGameManager);
         }
     }
     void Start()
