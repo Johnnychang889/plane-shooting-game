@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("BossHp",10f);
     }
-    public void Again()
+    public void NextLevel()
     {
 		//讀取場景名"GameScence"這個名稱要一模一樣別打錯字囉
         SceneManager.LoadSceneAsync("GameScence");
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
 		//讀取場景名"Menu"這個名稱要一模一樣別打錯字囉
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadSceneAsync("Menu");
+        PlayerPrefs.SetFloat("BossHp",10f);
     }
 }

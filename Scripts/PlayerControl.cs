@@ -22,6 +22,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Text moneyNumber = default;
     [SerializeField] GameObject follower1 = null;
     [SerializeField] GameObject follower2 = null;
+    public Button PauseButton;
+    public GameObject PauseWindow;
+    private bool isPause = false;
     [SerializeField] Joystick joy = null;
     float horizontalMove;
     
@@ -34,16 +37,25 @@ public class PlayerControl : MonoBehaviour
         hpBar.fillAmount = hp / hpMax;
         dieWindow.SetActive(false);
         winWindow.SetActive(false);
+        PauseWindow.SetActive(false);
     }
     private void Update()
     {
         //horizontalMove = Input.GetAxisRaw("Horizontal");
         horizontalMove = joy.Horizontal;
+
         boomNumber.text = "" + bomb;
         moneyNumber.text = "" + money;
-        if(Input.GetKeyDown(KeyCode.B))
+        if(winWindow.activeInHierarchy == false && dieWindow.activeInHierarchy == false)
         {
-            Boom();
+            if(Input.GetKeyDown(KeyCode.B))
+            {
+                Boom();
+            }
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseGame();
+            }
         }
         //transform.Translate(Vector3.up * 1 * Time.deltaTime, Space.World);
     }
@@ -57,25 +69,21 @@ public class PlayerControl : MonoBehaviour
     }
     void Move()
     {
-        
-        rig.velocity =
-           new Vector2(horizontalMove * speed, rig.velocity.y);
+        rig.velocity = new Vector2(horizontalMove * speed, rig.velocity.y);
         if (horizontalMove > 0.2f)
         {
+            anim.SetBool("left", false);
             anim.SetBool("right",true);
-            
         }
-
         if (horizontalMove < -0.2f)
         {
-            
+            anim.SetBool("right",false);
             anim.SetBool("left", true);
         }
         if(horizontalMove < 0.2f && horizontalMove > -0.2f)
         {
             anim.SetBool("right", false);
             anim.SetBool("left", false);
-
         }
     }
 
@@ -130,4 +138,23 @@ public class PlayerControl : MonoBehaviour
     {
         return transform.position;
     }
+    public void PauseGame()
+    {
+        isPause = !isPause;
+
+        if (isPause == true)
+        {
+            //PauseButton.image.sprite = Resources.Load<Sprite>("playButton");
+            PauseWindow.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            //PauseButton.image.sprite = Resources.Load<Sprite>("pause");
+            PauseWindow.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    
 }
