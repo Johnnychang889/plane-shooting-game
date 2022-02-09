@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyC_AI : MonoBehaviour
 {
     private Animator anim;
     [SerializeField] float speed = 3f;
