@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 616137298}
   - component: {fileID: 616137297}
   - component: {fileID: 616137296}
+  - component: {fileID: 616137299}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -1590,8 +1591,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1026646435}
-        m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
+      - m_Target: {fileID: 616137299}
+        m_TargetAssemblyTypeName: pauseControl, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
@@ -1640,6 +1641,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616137294}
   m_CullTransparentMesh: 1
+--- !u!114 &616137299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616137294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ee9741d7ec8ff46ba93a322e7b4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseButton: {fileID: 21300000, guid: ecfb8cddb5f3fbc46a1426f6d6569dae, type: 3}
+  playButton: {fileID: 21300000, guid: e3adc44ae1ad1aa42bde1c39d0f1521c, type: 3}
+  PauseWindow: {fileID: 928508646}
 --- !u!1 &619370551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,8 +3134,6 @@ MonoBehaviour:
   moneyNumber: {fileID: 1653201615}
   follower1: {fileID: 7948383531297235180, guid: 239e605423b31ea4e9d3b8813a5653bb, type: 3}
   follower2: {fileID: 7948383531297235180, guid: cc07e41a113d9b74ea2837188772ea27, type: 3}
-  PauseButton: {fileID: 616137296}
-  PauseWindow: {fileID: 928508646}
   joy: {fileID: 1323541985}
 --- !u!70 &1026646436
 CapsuleCollider2D:

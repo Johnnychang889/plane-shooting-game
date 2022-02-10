@@ -22,9 +22,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] Text moneyNumber = default;
     [SerializeField] GameObject follower1 = null;
     [SerializeField] GameObject follower2 = null;
-    public Button PauseButton;
-    public GameObject PauseWindow;
-    private bool isPause = false;
     [SerializeField] Joystick joy = null;
     float horizontalMove;
     
@@ -37,7 +34,6 @@ public class PlayerControl : MonoBehaviour
         hpBar.fillAmount = hp / hpMax;
         dieWindow.SetActive(false);
         winWindow.SetActive(false);
-        PauseWindow.SetActive(false);
     }
     private void Update()
     {
@@ -51,10 +47,6 @@ public class PlayerControl : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.B))
             {
                 Boom();
-            }
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                PauseGame();
             }
         }
         //transform.Translate(Vector3.up * 1 * Time.deltaTime, Space.World);
@@ -138,23 +130,7 @@ public class PlayerControl : MonoBehaviour
     {
         return transform.position;
     }
-    public void PauseGame()
-    {
-        isPause = !isPause;
-
-        if (isPause == true)
-        {
-            //PauseButton.image.sprite = Resources.Load<Sprite>("playButton");
-            PauseWindow.gameObject.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            //PauseButton.image.sprite = Resources.Load<Sprite>("pause");
-            PauseWindow.gameObject.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }
+    
 
     
 }
