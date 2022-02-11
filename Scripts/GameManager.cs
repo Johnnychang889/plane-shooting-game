@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+
     void Awake()
     {
         if(instance == null)
@@ -16,19 +17,21 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        PlayerPrefs.SetInt("money",0);
         PlayerPrefs.SetFloat("BossHp",10f);
     }
-    public void NextLevel()
+    void Update()
     {
-		//讀取場景名"GameScence"這個名稱要一模一樣別打錯字囉
-        SceneManager.LoadSceneAsync("GameScence");
         
     }
-	//公開一個Menu()等等按鈕會用到
-    public void Menu()
+    public void NextLevel()//進下一關
     {
-		//讀取場景名"Menu"這個名稱要一模一樣別打錯字囉
+        SceneManager.LoadSceneAsync("GameScence");
+    }
+    public void Menu()//回主頁
+    {
         SceneManager.LoadSceneAsync("Menu");
         PlayerPrefs.SetFloat("BossHp",10f);
     }
+  
 }

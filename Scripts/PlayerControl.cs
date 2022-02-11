@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] GameObject boom = null;
     [SerializeField] int bomb=3;
     [SerializeField] Text boomNumber = default;
-    [SerializeField] int money=0;
+    [SerializeField] public int money=0;
     [SerializeField] Text moneyNumber = default;
     [SerializeField] GameObject follower1 = null;
     [SerializeField] GameObject follower2 = null;
@@ -32,6 +32,12 @@ public class PlayerControl : MonoBehaviour
         boss = GameObject.Find("Boss").GetComponent<BossAI>();
         InvokeRepeating("Attack", 1f, 1f);
         hpBar.fillAmount = hp / hpMax;
+
+        if(PlayerPrefs.GetInt("money")!=0)
+        {
+            money = PlayerPrefs.GetInt("money");
+        }
+
         dieWindow.SetActive(false);
         winWindow.SetActive(false);
     }
@@ -39,9 +45,12 @@ public class PlayerControl : MonoBehaviour
     {
         //horizontalMove = Input.GetAxisRaw("Horizontal");
         horizontalMove = joy.Horizontal;
+        hpBar.fillAmount = hp / hpMax;
 
         boomNumber.text = "" + bomb;
         moneyNumber.text = "" + money;
+
+        if(money!=0) PlayerPrefs.SetInt("money",money);
         if(winWindow.activeInHierarchy == false && dieWindow.activeInHierarchy == false)
         {
             if(Input.GetKeyDown(KeyCode.B))
@@ -49,7 +58,7 @@ public class PlayerControl : MonoBehaviour
                 Boom();
             }
         }
-        //transform.Translate(Vector3.up * 1 * Time.deltaTime, Space.World);
+
     }
     private void FixedUpdate()
     {
@@ -96,7 +105,8 @@ public class PlayerControl : MonoBehaviour
             {	
                 anim.SetBool("die", true);
                 dieWindow.SetActive(true);
-                Destroy(gameObject,0.5f);
+                //Destroy(gameObject,0.5f);
+                gameObject.SetActive(false);
             }
         }
         if(collision.tag =="boom")
@@ -130,7 +140,12 @@ public class PlayerControl : MonoBehaviour
     {
         return transform.position;
     }
-    
+    public void Resurrection()//復活
+    {
+        gameObject.SetActive(true);
+        hp = hpMax;
+        dieWindow.SetActive(false);
+    }
 
     
 }

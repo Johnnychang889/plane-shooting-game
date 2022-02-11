@@ -101,9 +101,5 @@ public class BossAI : MonoBehaviour
             return false;
         }
     }
-
-    public void hpUp(){
-        hp = hp*2f;
-        
-    }
+    
 }
