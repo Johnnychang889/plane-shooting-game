@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class PlayerControl : MonoBehaviour
 {
+    
     private Animator anim;
     private Rigidbody2D rig;
     public BossAI boss = null;
@@ -16,10 +19,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] GameObject dieWindow = null;
     [SerializeField] GameObject winWindow = null;
     [SerializeField] GameObject boom = null;
-    [SerializeField] int bomb=3;
-    [SerializeField] Text boomNumber = default;
+    [SerializeField] public int bomb=3;
+    [SerializeField] public TMP_Text boomNumber = default;
     [SerializeField] public int money=0;
-    [SerializeField] Text moneyNumber = default;
+    [SerializeField] public TMP_Text moneyNumber = default;
     [SerializeField] GameObject follower1 = null;
     [SerializeField] GameObject follower2 = null;
     [SerializeField] Joystick joy = null;

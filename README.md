@@ -4,4 +4,5 @@
 ├── Prefabs 預置物
 ├── Scripts 腳本
 ├── Vertical 2D Shooting BE4 參考素材
-└── Joystick Pack 搖桿
+├── Joystick Pack 搖桿
+└── TextMesh Pro 文字外掛
