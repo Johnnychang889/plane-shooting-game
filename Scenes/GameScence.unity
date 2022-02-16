@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 128755209}
   - component: {fileID: 128755208}
   m_Layer: 5
-  m_Name: Button
+  m_Name: dieMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5724875538656421953, guid: 4909f69d40e817f42beed37d7317d644, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Menu
+        m_MethodName: dieMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 477719607}
   - component: {fileID: 477719606}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NextLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,7 +1663,7 @@ GameObject:
   - component: {fileID: 629216517}
   - component: {fileID: 629216516}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResurrectionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   boom: {fileID: 160577609435733049, guid: 7be8c12b592ff0049ac1bb3388364542, type: 3}
   bomb: 3
   boomNumber: {fileID: 1299848610}
-  money: 0
+  money: 100
   moneyNumber: {fileID: 2020059251}
   follower1: {fileID: 7948383531297235180, guid: 239e605423b31ea4e9d3b8813a5653bb, type: 3}
   follower2: {fileID: 7948383531297235180, guid: cc07e41a113d9b74ea2837188772ea27, type: 3}
@@ -4357,7 +4357,7 @@ GameObject:
   - component: {fileID: 1525579142}
   - component: {fileID: 1525579141}
   m_Layer: 5
-  m_Name: Button
+  m_Name: winMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4429,7 +4429,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5724875538656421953, guid: 4909f69d40e817f42beed37d7317d644, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Menu
+        m_MethodName: winMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4877,7 +4877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

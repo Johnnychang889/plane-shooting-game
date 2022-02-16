@@ -32,6 +32,8 @@ public class PlayerControl : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
+        dieWindow.SetActive(false);
+        winWindow.SetActive(false);
         boss = GameObject.Find("Boss").GetComponent<BossAI>();
         InvokeRepeating("Attack", 1f, 1f);
         hpBar.fillAmount = hp / hpMax;
@@ -40,9 +42,13 @@ public class PlayerControl : MonoBehaviour
         {
             money = PlayerPrefs.GetInt("money");
         }
+        if(PlayerPrefs.GetFloat("playerMaxHp") == 50.0f)
+        {
+            hpMax += 50.0f;
+            hp = hpMax;
+        }
 
-        dieWindow.SetActive(false);
-        winWindow.SetActive(false);
+        
     }
     private void Update()
     {
