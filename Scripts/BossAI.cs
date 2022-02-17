@@ -55,12 +55,21 @@ public class BossAI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.tag == "PlayerBullet"||collision.tag == "FollowerBullet"||collision.tag == "BoomBullet")
+        if (collision.tag == "PlayerBullet"||collision.tag == "BoomBullet")
         {
-            hp -= 5f;
+            hp -= 5.0f + PlayerPrefs.GetFloat("playerAttackPower");
             anim.SetTrigger("hit");
             if (hp <= 0){
+                isdie = true;
+                Destroy(gameObject,0.2f);
+            }
+        }
+        else if(collision.tag == "FollowerBullet")
+        {
+            hp --;
+            anim.SetTrigger("hit");
+            if (hp <= 0)
+            {
                 isdie = true;
                 Destroy(gameObject,0.2f);
             }

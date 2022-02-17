@@ -35,19 +35,28 @@ public class PlayerControl : MonoBehaviour
         dieWindow.SetActive(false);
         winWindow.SetActive(false);
         boss = GameObject.Find("Boss").GetComponent<BossAI>();
-        InvokeRepeating("Attack", 1f, 1f);
         hpBar.fillAmount = hp / hpMax;
 
         if(PlayerPrefs.GetInt("money")!=0)
         {
             money = PlayerPrefs.GetInt("money");
         }
+
         if(PlayerPrefs.GetFloat("playerMaxHp") == 50.0f)
         {
             hpMax += 50.0f;
             hp = hpMax;
         }
 
+        if(PlayerPrefs.GetFloat("playerFireSpeed") == 2.0f)
+        {
+            InvokeRepeating( "Attack", 1f, 0.5f );
+        }
+        else if(PlayerPrefs.GetFloat("playerFireSpeed") == 1.0f)
+        {
+            InvokeRepeating( "Attack", 1f, 1f );
+        }
+        else Debug.Log("playerFireSpeed Error!");
         
     }
     private void Update()
@@ -99,7 +108,6 @@ public class PlayerControl : MonoBehaviour
 
     void Attack()
     {
-		//生成物件(bullet(物件名稱),物件位置,物件角度)
         Instantiate(bullet,transform.position,Quaternion.identity);
     }
 

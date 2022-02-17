@@ -22,9 +22,14 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("money",0);
         PlayerPrefs.SetFloat("BossHp",10f);
+        //商店物品加入遊戲
         PlayerPrefs.SetFloat("playerMaxHp",0.0f);
-        //StoreWindow
+        PlayerPrefs.SetFloat("playerFireSpeed",1.0f);
+        PlayerPrefs.SetFloat("playerAttackPower",0.0f);
+        //商店貨物是否售完(0代表還沒,1代表售完)
         PlayerPrefs.SetInt("isPlayerMaxHpUp",0);
+        PlayerPrefs.SetInt("isPlayerFireSpeedUp",0);
+        PlayerPrefs.SetInt("isPlayerAttackPowerUp",0);
     }
     void Update()
     {
@@ -52,13 +57,52 @@ public class GameManager : MonoBehaviour
         }
         else if(PlayerPrefs.GetInt("isPlayerMaxHpUp") == 0)
         {
-            PlayerPrefs.SetFloat("playerMaxHp",50.0f);
             PlayerPrefs.SetInt("isPlayerMaxHpUp",1);
+
+            PlayerPrefs.SetFloat("playerMaxHp",50.0f);
             PlayerPrefs.SetInt("money",PlayerPrefs.GetInt("money")-10);
         }
         else
         {
             TMP_Text slodout = GameObject.Find("CommodityButton1/DetailButton/BuyButton/price").GetComponent<TMP_Text>();
+            slodout.text = "已購買";
+        }
+    }
+    public void playerFireSpeedUp()
+    {
+        if(PlayerPrefs.GetInt("money")<20)
+        {
+            Debug.Log("你沒有足夠的錢");
+        }
+        else if(PlayerPrefs.GetInt("isPlayerFireSpeedUp") == 0)
+        {
+            PlayerPrefs.SetInt("isPlayerFireSpeedUp",1);
+
+            PlayerPrefs.SetFloat("playerFireSpeed",2.0f);
+            PlayerPrefs.SetInt("money",PlayerPrefs.GetInt("money")-20);
+        }
+        else
+        {
+            TMP_Text slodout = GameObject.Find("CommodityButton2/DetailButton/BuyButton/price").GetComponent<TMP_Text>();
+            slodout.text = "已購買";
+        }
+    }
+    public void playerAttackPowerUp()
+    {
+        if(PlayerPrefs.GetInt("money")<30)
+        {
+            Debug.Log("你沒有足夠的錢");
+        }
+        else if(PlayerPrefs.GetInt("isPlayerAttackPowerUp") == 0)
+        {
+            PlayerPrefs.SetInt("isPlayerAttackPowerUp",1);
+
+            PlayerPrefs.SetFloat("playerAttackPower",3.0f);
+            PlayerPrefs.SetInt("money",PlayerPrefs.GetInt("money")-30);
+        }
+        else
+        {
+            TMP_Text slodout = GameObject.Find("CommodityButton3/DetailButton/BuyButton/price").GetComponent<TMP_Text>();
             slodout.text = "已購買";
         }
     }

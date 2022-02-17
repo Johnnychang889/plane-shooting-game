@@ -42,10 +42,19 @@ public class EnemyB_AI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.tag == "PlayerBullet"||collision.tag == "FollowerBullet"||collision.tag == "BoomBullet")
+        if (collision.tag == "PlayerBullet"||collision.tag == "BoomBullet")
         {
-            hp -= 5f;
+            hp -= 5.0f + PlayerPrefs.GetFloat("playerAttackPower");
+            anim.SetTrigger("hit");
+            if (hp <= 0)
+            {
+                Instantiate(money, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+        }
+        else if(collision.tag == "FollowerBullet")
+        {
+            hp --;
             anim.SetTrigger("hit");
             if (hp <= 0)
             {

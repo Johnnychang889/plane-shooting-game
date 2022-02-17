@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 751088327401580019}
   - component: {fileID: 751088327401580018}
   - component: {fileID: 4026225867230228200}
+  - component: {fileID: -8293234261878283206}
   m_Layer: 0
-  m_Name: Coin 0
+  m_Name: Coin
   m_TagString: money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,3 +120,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5416667, y: 0.6666667}
   m_Direction: 0
+--- !u!50 &-8293234261878283206
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751088327401580017}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
