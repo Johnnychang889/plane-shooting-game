@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3200952338964583278}
   - component: {fileID: 9081377229779962197}
   - component: {fileID: -3712771486392562173}
-  - component: {fileID: -5448940436601024423}
+  - component: {fileID: 5002692525324260066}
   m_Layer: 0
-  m_Name: Follower 2
+  m_Name: Follower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5448940436601024423
+--- !u!114 &5002692525324260066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,8 +114,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7948383531297235180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abdd84222f55ceb41988bd5fb0d5aacf, type: 3}
+  m_Script: {fileID: 11500000, guid: 9064030f63559c143b17ae56194d4f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   bullet: {fileID: 5961028399265368441, guid: 529f8a7b9ccae744895b588ad9829a63, type: 3}
   disappearTime: 5

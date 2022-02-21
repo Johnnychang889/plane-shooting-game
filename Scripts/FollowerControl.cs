@@ -19,11 +19,17 @@ public class FollowerControl : MonoBehaviour
     {
         InvokeRepeating("Attack", 1f, 1f);
         Destroy(gameObject,disappearTime);
+        
     }
 
     void Update()
     {
-        followerPosition = new Vector3(player.getPosition().x-1,player.getPosition().y,player.getPosition().z);
+        if(this.name == "Follower(Clone)")
+            followerPosition = new Vector3(player.getPosition().x-1,player.getPosition().y,player.getPosition().z);
+        else if(this.name == "Follower2(Clone)")
+            followerPosition = new Vector3(player.getPosition().x+1,player.getPosition().y,player.getPosition().z);
+        else Debug.Log("follower error!");
+        
         transform.position = Vector3.MoveTowards(transform.position, followerPosition, speed * Time.deltaTime);
     }
 
