@@ -1,3 +1,3 @@
-### Unity-OldPlane-Game
+### Plane Shooting Game
 ```
 Build a small game with Unity.
